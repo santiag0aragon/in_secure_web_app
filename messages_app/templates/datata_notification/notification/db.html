@@ -1,0 +1,71 @@
+{% extends "datata_notification/_layouts/base.html" %}
+{% load markdown_filter%}
+
+{% block site_title %}
+(IN)Secure | Message App
+{% endblock site_title %}
+
+{% block title %}
+Message App
+{% endblock title %}
+{% block messages %}
+{% if notifications_user.count  > 0 or notifications_group.count > 0%}
+<div class='panel panel-default'>
+    <div class='panel-heading'>
+        <i class='fa fa-inbox'></i> Messages
+    </div>
+    <div class='panel-body'>
+        <ul class='timeline'>
+            {% for n in notifications_user %}
+            <li>
+                <div class='timeline-badge'><i class='fa fa-envelope'></i>
+                </div>
+                <div class='timeline-panel'>
+                    <div class='timeline-heading'>
+                        <h4 class='timeline-title'>{{n.title}}</h4>
+                        <p><small class='text-muted'><i class='fa fa-clock-o'></i> {{n.date}}</small>
+                        </p>
+                    </div>
+                    <div class='timeline-body'>
+                        <p>
+                            {# XSS #}{% autoescape off %}
+                                {# XSS #}{{n.message|markdownify}}
+                            {# XSS #}{% endautoescape %}
+
+                        </p>
+                    </div>
+                    <div class='timeline-body'>
+                        <p><a href="/messages/delete/{{n.id}}">Mark as read</a></p>
+                    </div>
+                </div>
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+</div>
+{% endif %}
+<div class='panel panel-default'>
+    <div class='panel-heading'>
+        <i class='fa fa-envelope-square'></i> New message
+    </div>
+    <div class='panel-body'>
+        <ul class='timeline'>
+        <form method="POST" class="post-form">{% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" class="save btn btn-default">Send</button>
+        </form>
+        </ul>
+    </div>
+</div>
+
+
+
+{% endblock messages %}
+
+{% block panel_1 %}
+<a href='{% url 'profile.views.logout' %}'><i class='fa fa-sign-out fa-fw'></i> Logout</a>
+
+{% endblock panel_1 %}
+
+{% block template_scripts %}
+{% endblock template_scripts %}

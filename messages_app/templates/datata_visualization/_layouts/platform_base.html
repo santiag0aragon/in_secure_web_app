@@ -1,0 +1,221 @@
+{% load static %}
+
+
+<!DOCTYPE html>
+<html lang='es'>
+
+    <head>
+        <meta charset='utf-8'>
+        <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+        <meta name='viewport' content='width=device-width, initial-scale=1'>
+
+        <!-- TODO: (otn) Client name should be pulled automatically -->
+
+        <meta name='description' content='Score Group platform'>
+        <meta name='author' cotent='Datata'>
+        <title>
+            {% block site_title %}
+                Dashboard
+            {% endblock site_title %}
+        </title>
+        <link rel="shortcut icon" href="{% static "assets/img/favicon.ico" %}">
+        <link rel='stylesheet' href='//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css'>
+        <!-- <link rel='stylesheet' href='//cdnjs.cloudflare.com/ajax/libs/metisMenu/1.1.3/metisMenu.min.css'> -->
+        <link rel='stylesheet' href='{% static "assets/css/metisMenu.min.css" %}'>
+        <link rel='stylesheet' href='//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css'>
+        <link rel='stylesheet' href='{% static 'assets/css/style_platform.css' %}'>
+
+
+        {% block head_space %}
+        {% endblock head_space %}
+
+
+
+    </head>
+
+    <body>
+
+
+
+        <!-- Wrapper -->
+        <div id='wrapper'>
+
+                <!-- Sidebar -->
+                <div class='navbar-default sidebar' role='navigation'>
+                    <div class='sidebar-nav navbar-collapse'>
+                        <ul class='nav' id='side-menu'>
+                            <!-- Search -->
+                            <!--
+
+                            <!-- End Search -->
+                            <!-- Section 1 -->
+
+                            {% block logo %}
+                            {% endblock logo %}
+
+                            {% block menu %}
+                            {% endblock menu %}
+
+                    </div>
+                </div>
+                <!-- End Sidebar -->
+            </nav>
+            <!-- End Navigation -->
+
+            <!-- Content -->
+            <div id='page-wrapper'>
+                <!-- Title -->
+                <div class='row'>
+                    <div class='col-lg-12'>
+                        <h1 class='page-header'>
+                            <div style="color: #BDBDBD; display: inline-block;">
+                                {% block  subtitle %}
+                                {% endblock subtitle %}
+                            </div>
+                            {% block title %}
+                            {% endblock title %}
+                        </h1>
+                    </div>
+                </div>
+                <!-- End Title -->
+
+                <!-- Initial Boxes -->
+                <div class='row'>
+                    <!-- Box 1 -->
+
+                    {% block box_1 %}
+                    {% endblock box_1 %}
+
+                    <!-- End Box 1 -->
+                    <!-- Box 2 -->
+
+                    {% block box_2 %}
+                    {% endblock box_2 %}
+
+                    <!-- End Box 2 -->
+                    <!-- Box 3 -->
+
+                    {% block box_3 %}
+                    {% endblock box_3 %}
+
+                    <!-- End Box 3 -->
+                    <!-- Box 4 -->
+
+                    {% block box_4 %}
+                    {% endblock box_4 %}
+
+                    <!-- End Box 4 -->
+                </div>
+                <!-- End Initial Boxes -->
+                <!-- Messages -->
+                <div class='row'>
+                    <div class='col-lg-12'>
+
+                        {% block messages %}
+                        {% endblock messages %}
+
+                    </div>
+                </div>
+                <!-- End Messages -->
+                <!-- Dashboard Content -->
+
+                {% block content %}
+                {% endblock content %}
+
+                <!-- End Dashboard Content -->
+                <!-- Panels -->
+                <div class='row'>
+                    <!-- Column 1 -->
+                    <div class='col-lg-6'>
+                        <!-- Panel 1 -->
+
+                        {% block panel_1 %}
+                        {% endblock panel_1 %}
+
+                        <!-- End Panel 1 -->
+                        <!-- Panel 2 -->
+
+                        {% block panel_2 %}
+                        {% endblock panel_2 %}
+
+                        <!-- End Panel 2 -->
+                        <!-- Other Panels -->
+
+                        {% block panel_3 %}
+                        {% endblock panel_3 %}
+
+                        {% block panel_4 %}
+                        {% endblock panel_4 %}
+
+                        {% block panel_5 %}
+                        {% endblock panel_5 %}
+                        <!-- End Other Panels -->
+
+                    </div>
+                    <!-- End Column 1 -->
+                    <!-- Column 2 -->
+                    <div class='col-lg-6'>
+                        <!-- Panel 3 -->
+
+                        {% block panel_6 %}
+                        {% endblock panel_6 %}
+
+                        <!-- End Panel 3 -->
+                        <!-- Panel 4 -->
+
+                        {% block panel_7 %}
+                        {% endblock panel_7 %}
+
+                        <!-- End Panel 4 -->
+                        <!-- Panel 5 -->
+
+                        {% block panel_8 %}
+                        {% endblock panel_8 %}
+
+                        <!-- End Panel 5 -->
+                        <!-- Other Panels -->
+
+                        {% block panel_9 %}
+                        {% endblock panel_9 %}
+
+                        {% block panel_10 %}
+                        {% endblock panel_10 %}
+
+                        <!-- End Other Panels -->
+                    </div>
+                    <!-- End Column 2 -->
+                </div>
+                <!-- End Panels -->
+
+                {% block bottom %}
+                {% endblock bottom %}
+
+            </div>
+            <!-- End Content -->
+        </div>
+        <!-- End Wrapper -->
+
+        <!-- Scripts -->
+        {% block scripts %}
+        {% endblock scripts %}
+
+        <script src='https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+        <script src='//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js'></script>
+        <!-- <script src='//cdnjs.cloudflare.com/ajax/libs/metisMenu/1.1.3/metisMenu.min.js'></script> -->
+        <script src='{% static "assets/js/platform/metisMenu.min.js" %}'></script>
+        <script src='{% static 'assets/js/platform/side-menu.js' %}'></script>
+        <script>
+            $(function () {
+                $('#menu').metisMenu();
+            });
+        </script>
+
+        {% block template_scripts %}
+        {% endblock template_scripts %}
+        <!-- End Scripts -->
+
+
+
+    </body>
+
+</html>

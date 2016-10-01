@@ -1,0 +1,65 @@
+{% load staticfiles %}
+
+<!DOCTYPE html>
+<html lang='es'>
+
+<head>
+    <meta charset='utf-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <meta name='description' content='Score Group analysis platform'>
+    <meta name='author' content='Datata'>
+    <title>
+        {% block site_title %}
+            Plataforma | Score Group
+        {% endblock site_title %}
+    </title>
+    <link rel='stylesheet' href='//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css'>
+    <link rel='stylesheet' href='//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css'>
+    <link href='http://fonts.googleapis.com/css?family=Lato:300,400,700,900' rel='stylesheet' type='text/css'>
+    <link rel='stylesheet' href='{% static 'assets/css/style_platform.css' %}'>
+    <script src='https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+
+</head>
+
+<body>
+    <!-- Content -->
+    <div class='container'>
+        <div class='row'>
+            <div class='col-md-12 center'>
+                <!-- TODO: Make this general -->
+                <a href="{% url 'messages_app.views.main' %}">
+                </a>
+            </div>
+            <div class='col-md-4 col-md-offset-4'>
+                <div class='login-panel panel panel-default'>
+                    <div class='panel-heading'>
+                        <h3 class='panel-title'>Login</h3>
+                    </div>
+                    <div class='panel-body'>
+                        {% if form.errors %}
+                            <p class='error'>User/Password combination is not valid.</p>
+                        {% endif %}
+                        <form action='/accounts/auth/' method='post' role='form'>{% csrf_token %}
+                            <fieldset>
+                                <div class='form-group'>
+                                    <input class='form-control' placeholder='User' name='username' type='text' id='username' value='' autofocus>
+                                </div>
+                                <div class='form-group'>
+                                    <input class='form-control' placeholder='Password' name='password' type='password' value='' id='password'>
+                                </div>
+                                <input class='btn btn-lg btn-success btn-block' type='submit' value='Ingresar'/>
+                            </fieldset>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Content -->
+
+    <!-- Global Scripts -->
+    <script src='//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js'></script>
+    <!-- End Global Scripts -->
+</body>
+
+</html>
